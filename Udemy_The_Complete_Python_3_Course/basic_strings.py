@@ -8,4 +8,7 @@ print(x)
 y = "She said: \"Callate carajo!\""
 print(y)
 
+j = "Jordi Lazo dijo:\'Hola Spock\'"
+
+print(j)
 print("Prueba del shortcast")
