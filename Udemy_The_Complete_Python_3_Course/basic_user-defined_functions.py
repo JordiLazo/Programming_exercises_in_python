@@ -25,3 +25,19 @@ def print_something_3(name = "Someone", age = "Unknown"):
     print("My name is",name,"and my age is",age )
 
 print_something_3("Nick")
+print_something_3(27)
+print_something_3(age = 27)
+print_something_3(age = 27, name = "Nick")
+
+def print_people(*people):
+    for person in people:
+        print("This person is", person)
+
+print_people("Nick","Dan","Jack","King","Smiley")
+
+def do_math(num1,num2):
+    return num1 + num2
+
+math1 = do_math(9,2)
+math2 = do_math(11,34)
+print("First sum is", math1, "and the second sum is", math2)
