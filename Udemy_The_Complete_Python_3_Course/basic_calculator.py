@@ -1,3 +1,8 @@
+'''
+Program: Magical Calculator
+Author: Jordi Lazo
+Copyright: 2016
+'''
 import re
 
 print("Our Magical Calculator")
@@ -10,10 +15,12 @@ def performMath():
     global previous
     equation = ""
 
+    #If there has been a previous calculation, use that result as the prompt
     if previous == 0:
         equation = input("Enter equation:")
     else:
         equation = input(str(previous))
+    #If user exit
     if equation == 'exit':
         print("Goodbye, human.")
         run = False
