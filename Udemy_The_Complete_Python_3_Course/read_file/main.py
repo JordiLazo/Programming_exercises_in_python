@@ -1,16 +1,18 @@
-import simplejson as json
-import os
+import requests
+from io import BytesIO
+from PIL import Image
 
-if os.path.isfile("./ages.json") and os.stat("./ages.json").st_size != 0:
-    old_file = open("./ages.json","r+")
-    data = json.loads(old_file.read())
-    print("Current age is:", data["age"],"-- adding year.")
-    data["age"] = data["age"] + 1
-    print("New age is", data["age"])
-else:
-    old_file = open("./ages.json","w+")
-    data = {"name":"Nick","age":27}
-    print("No file found setting default age to",data["age"])
+r = requests.get("https://images2.alphacoders.com/669/669175.jpg")
 
-old_file.seek(0)
-old_file.write(json.dumps(data))
+print("Status code:", r.status_code)
+
+image = Image.open(BytesIO(r.content))
+
+path = "./image." + image.format
+
+print(image.size, image.format, image.mode)
+
+try:
+    image.save(path, image.format)
+except IOError:
+    print("Can not save image.")
